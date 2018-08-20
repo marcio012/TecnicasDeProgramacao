@@ -12,7 +12,7 @@ public class Funcionario {
 	private BigDecimal salario;
 	private BigDecimal bonus;
 	private BigDecimal salarioBruto;
-	private ArrayList<Funcionario> funcionarios = new ArrayList();
+	private ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
 
 	public Funcionario(String nome, LocalDate dataAdmisao, BigDecimal salario, BigDecimal bonus) {
@@ -22,6 +22,7 @@ public class Funcionario {
 		this.salario = salario;
 		this.bonus = bonus;
 		this.salarioBruto = salario.add(bonus);
+		funcionarios.add(this);
 	}
 
 	public Funcionario() {
@@ -79,8 +80,8 @@ public class Funcionario {
 				" Data de Admisão: " + getDataAdmisao() + 
 				" Salário Liquido: R$ " + getSalario() + 
 				" Bonus anual: " + getBonus() + "% " +
-				" Salário Bruto: R$ " + getSalarioBruto() + 
-				funcionarios.add(this);
+				" Salário Bruto: R$ " + getSalarioBruto();
+				
 	}
 	
 	
@@ -88,22 +89,12 @@ public class Funcionario {
 		this.funcionarios.add(funcionario);
 	}
 	
-	public String listarFuncionarios() {
+	public void listarFuncionarios() {
 		
-		String listaFuncionario= "";
-		
-		for (int i = 0; i < this.funcionarios.size(); i++) {
-			Funcionario funcionario = this.funcionarios.get(i);
-			listaFuncionario = funcionario.toString(); 
+		for(Funcionario funcionario: funcionarios) {
+			System.out.println(funcionario.toString());
 		}
 		
-		return listaFuncionario;
-	}
-	
-	public void getArrayFuncionarios() {
-		for (Funcionario funcionario : funcionarios) {
-		
-		}
 	}
 	
 	public void getSpliceDataAdmisao() {

@@ -14,10 +14,10 @@ public class AppExercicio {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		Scanner gsc = new Scanner(System.in);
-
-		Funcionario funcionario = new Funcionario();
+		
+		Funcionario func = new Funcionario();
 		Gerente gerente = new Gerente();
-
+		
 		int inicio = 0;
 
 		menu();
@@ -39,8 +39,9 @@ public class AppExercicio {
 				
 
 //				Funcionario
+				
 				System.out.println("Nome Funcionário: ");
-				funcionario.setNome(sc.nextLine());
+				func.setNome(sc.nextLine());
 
 				System.out.println("Data de Admisão? ");
 				System.out.println("Dia: ");
@@ -49,21 +50,23 @@ public class AppExercicio {
 				int mes = sc.nextInt();
 				System.out.println("Ano: ");
 				int ano = sc.nextInt();
-				funcionario.setDataAdmisao(ano, mes, dia);
+				func.setDataAdmisao(ano, mes, dia);
 
 				System.out.println("Salário Inicial? R$");
-				funcionario.setSalario(sc.nextBigDecimal());
+				func.setSalario(sc.nextBigDecimal());
 
 				System.out.println("Bonus de salário? ");
-				funcionario.setBonus(sc.nextBigDecimal());
+				func.setBonus(sc.nextBigDecimal());
 
-				funcionario.aumentaSalario(funcionario.getBonus());
-				System.out.println(funcionario.toString());
+				func.aumentaSalario(func.getBonus());
+				func.addFuncionario(func);
+				System.out.println(func.toString());
 
 				break;
 
 			case 2:
 //				Gerente
+				
 
 				System.out.println("Nome Gerente: ");
 				gerente.setNome(gsc.nextLine());
@@ -90,8 +93,9 @@ public class AppExercicio {
 
 				
 			case 3: 
+				
 				System.out.println("Relatorio: ");
-				funcionario.listarFuncionarios();
+				func.listarFuncionarios();
 				
 				break;
 				
@@ -103,6 +107,7 @@ public class AppExercicio {
 			System.out.println("=======================================================");
 			menu();
 			inicio = sc.nextInt();
+			sc.nextLine();
 
 		}
 
