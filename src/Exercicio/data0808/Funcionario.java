@@ -2,6 +2,7 @@ package Exercicio.data0808;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Funcionario {
@@ -11,6 +12,8 @@ public class Funcionario {
 	private BigDecimal salario;
 	private BigDecimal bonus;
 	private BigDecimal salarioBruto;
+	private ArrayList<Funcionario> funcionarios = new ArrayList();
+
 
 	public Funcionario(String nome, LocalDate dataAdmisao, BigDecimal salario, BigDecimal bonus) {
 		super();
@@ -76,7 +79,31 @@ public class Funcionario {
 				" Data de Admisão: " + getDataAdmisao() + 
 				" Salário Liquido: R$ " + getSalario() + 
 				" Bonus anual: " + getBonus() + "% " +
-				" Salário Bruto: R$ " + getSalarioBruto();
+				" Salário Bruto: R$ " + getSalarioBruto() + 
+				funcionarios.add(this);
+	}
+	
+	
+	public void addFuncionario(Funcionario funcionario) {
+		this.funcionarios.add(funcionario);
+	}
+	
+	public String listarFuncionarios() {
+		
+		String listaFuncionario= "";
+		
+		for (int i = 0; i < this.funcionarios.size(); i++) {
+			Funcionario funcionario = this.funcionarios.get(i);
+			listaFuncionario = funcionario.toString(); 
+		}
+		
+		return listaFuncionario;
+	}
+	
+	public void getArrayFuncionarios() {
+		for (Funcionario funcionario : funcionarios) {
+		
+		}
 	}
 	
 	public void getSpliceDataAdmisao() {
@@ -93,6 +120,8 @@ public class Funcionario {
 		setDataAdmisao(ano,mes,dia);
 		
 	}
+	
+	
 	
 	
 }

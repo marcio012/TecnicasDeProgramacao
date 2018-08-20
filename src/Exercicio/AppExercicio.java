@@ -3,6 +3,7 @@ package Exercicio;
 import java.util.Locale;
 import java.util.Scanner;
 
+
 import Exercicio.data0808.Funcionario;
 import Exercicio.data0808.Gerente;
 
@@ -13,30 +14,30 @@ public class AppExercicio {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		Scanner gsc = new Scanner(System.in);
-		
+
 		Funcionario funcionario = new Funcionario();
 		Gerente gerente = new Gerente();
 
 		int inicio = 0;
 
-		System.out.println("Bem vindo ao sistema de RH da Tabajara Empreendimentos:");
-		System.out.println("=======================================================");
-
-		System.out.println("Deseja cadastrar um Funcionario? 1-sim/0-não");
+		menu();
 		inicio = sc.nextInt();
 
-		while (inicio != 0) {
+		System.out.println();
 
+		while (inicio != 0) {
+			
+			
 			sc.nextLine();
-			
-			System.out.println("Qual a função do Funcionário: 1-Funcionario / 2-Gerente: ");
-			int funcao = sc.nextInt();
-			
-			switch (funcao) {
-			
+
+//			System.out.println("Qual a função do Funcionário: 1-Funcionario / 2-Gerente: ");
+//			int funcao = sc.nextInt();
+
+			switch (inicio) {
+
 			case 1:
-				sc.nextLine();
 				
+
 //				Funcionario
 				System.out.println("Nome Funcionário: ");
 				funcionario.setNome(sc.nextLine());
@@ -55,16 +56,15 @@ public class AppExercicio {
 
 				System.out.println("Bonus de salário? ");
 				funcionario.setBonus(sc.nextBigDecimal());
-				
+
 				funcionario.aumentaSalario(funcionario.getBonus());
 				System.out.println(funcionario.toString());
-				
+
 				break;
 
 			case 2:
 //				Gerente
-				sc.nextLine();
-				
+
 				System.out.println("Nome Gerente: ");
 				gerente.setNome(gsc.nextLine());
 				System.out.println("Data da Admisão? ");
@@ -82,9 +82,16 @@ public class AppExercicio {
 
 				System.out.println("Bonus de salário? ");
 				gerente.setBonus(gsc.nextBigDecimal());
-				
+
 				gerente.aumentaSalario(gerente.getBonus());
 				System.out.println(gerente.toString());
+
+				break;
+
+				
+			case 3: 
+				System.out.println("Relatorio: ");
+				funcionario.listarFuncionarios();
 				
 				break;
 				
@@ -92,18 +99,27 @@ public class AppExercicio {
 				System.out.println("Informe uma cargo valido.");
 				break;
 			}
-			
+
 			System.out.println("=======================================================");
-			System.out.println("Deseja cadastrar um Funcionario? 1-sim/0-não");
+			menu();
 			inicio = sc.nextInt();
 
 		}
 
 		System.out.println("Obrigado por usar o sistema de RH da Tabajara Empreendimentos");
-		
+
 		sc.close();
 		gsc.close();
-		
-	}
 
+	}
+	
+	public static void menu() {
+		System.out.println("Bem vindo ao sistema de RH da Tabajara Empreendimentos:");
+		System.out.println("=======================================================");
+		System.out.println("Digete a opção desejavel: ");
+		System.out.println("1 - Funcionario: ");
+		System.out.println("2 - Gerente: ");
+		System.out.println("3 - Relatório: ");
+		System.out.println("0 - Sair: ");
+	}
 }
