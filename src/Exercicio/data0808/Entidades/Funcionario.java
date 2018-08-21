@@ -1,9 +1,8 @@
-package Exercicio.data0808;
+package Exercicio.data0808.Entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Funcionario {
 
@@ -14,15 +13,14 @@ public class Funcionario {
 	private BigDecimal salarioBruto;
 	private ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
 
-
-	public Funcionario(String nome, LocalDate dataAdmisao, BigDecimal salario, BigDecimal bonus) {
+	
+	public Funcionario(String nome, int ano, int mes, int dia, BigDecimal salario, BigDecimal bonus) {
 		super();
 		this.nome = nome;
-		this.dataAdmisao = dataAdmisao;
+		this.dataAdmisao = transformData(ano, mes, dia);
 		this.salario = salario;
 		this.bonus = bonus;
 		this.salarioBruto = salario.add(bonus);
-		funcionarios.add(this);
 	}
 
 	public Funcionario() {
@@ -43,6 +41,11 @@ public class Funcionario {
 
 	public void setDataAdmisao(int ano, int mes, int dia) {
 		this.dataAdmisao = LocalDate.of(ano, mes, dia);
+	}
+	
+	public LocalDate transformData(int ano, int mes, int dia) {
+		LocalDate dataAdmisao = LocalDate.of(ano, mes, dia);
+		return dataAdmisao;
 	}
 
 	public BigDecimal getSalario() {
@@ -84,7 +87,6 @@ public class Funcionario {
 				
 	}
 	
-	
 	public void addFuncionario(Funcionario funcionario) {
 		this.funcionarios.add(funcionario);
 	}
@@ -96,23 +98,6 @@ public class Funcionario {
 		}
 		
 	}
-	
-	public void getSpliceDataAdmisao() {
-		
-		Scanner s = new Scanner(System.in);
-		
-		System.out.println("");
-		System.out.println("Dia da Admisão: ");
-		int dia = s.nextInt();
-		System.out.println("Mes da Admisão: ");
-		int mes = s.nextInt();
-		System.out.println("Ano da Admisão: ");
-		int ano = s.nextInt();
-		setDataAdmisao(ano,mes,dia);
-		
-	}
-	
-	
 	
 	
 }

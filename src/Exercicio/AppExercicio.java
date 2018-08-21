@@ -1,11 +1,12 @@
 package Exercicio;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Scanner;
 
-
-import Exercicio.data0808.Funcionario;
-import Exercicio.data0808.Gerente;
+import Exercicio.data0808.Entidades.Funcionario;
+import Exercicio.data0808.Entidades.Gerente;
+import Exercicio.data0808.Repositorio.RepositorioFuncionario;
 
 public class AppExercicio {
 
@@ -15,7 +16,7 @@ public class AppExercicio {
 		Scanner sc = new Scanner(System.in);
 		Scanner gsc = new Scanner(System.in);
 		
-		Funcionario func = new Funcionario();
+		RepositorioFuncionario arrayFunc = new RepositorioFuncionario();
 		Gerente gerente = new Gerente();
 		
 		int inicio = 0;
@@ -26,22 +27,17 @@ public class AppExercicio {
 		System.out.println();
 
 		while (inicio != 0) {
-			
-			
-			sc.nextLine();
 
-//			System.out.println("Qual a função do Funcionário: 1-Funcionario / 2-Gerente: ");
-//			int funcao = sc.nextInt();
+			sc.nextLine();
 
 			switch (inicio) {
 
 			case 1:
-				
 
-//				Funcionario
+				// Funcionario
 				
 				System.out.println("Nome Funcionário: ");
-				func.setNome(sc.nextLine());
+				String nome = sc.nextLine();
 
 				System.out.println("Data de Admisão? ");
 				System.out.println("Dia: ");
@@ -50,17 +46,16 @@ public class AppExercicio {
 				int mes = sc.nextInt();
 				System.out.println("Ano: ");
 				int ano = sc.nextInt();
-				func.setDataAdmisao(ano, mes, dia);
 
 				System.out.println("Salário Inicial? R$");
-				func.setSalario(sc.nextBigDecimal());
+				BigDecimal salario = sc.nextBigDecimal();
 
 				System.out.println("Bonus de salário? ");
-				func.setBonus(sc.nextBigDecimal());
+				BigDecimal bonus = sc.nextBigDecimal();
 
-				func.aumentaSalario(func.getBonus());
-				func.addFuncionario(func);
+				Funcionario func = new Funcionario(nome, ano, mes, dia, salario, bonus);
 				System.out.println(func.toString());
+				System.out.println(arrayFunc.salvarFuncionario(func));
 
 				break;
 
@@ -93,10 +88,9 @@ public class AppExercicio {
 
 				
 			case 3: 
-				
+		
 				System.out.println("Relatorio: ");
-				func.listarFuncionarios();
-				
+				arrayFunc.imprimirListaFuncionarios();		
 				break;
 				
 			default:
@@ -107,7 +101,6 @@ public class AppExercicio {
 			System.out.println("=======================================================");
 			menu();
 			inicio = sc.nextInt();
-			sc.nextLine();
 
 		}
 

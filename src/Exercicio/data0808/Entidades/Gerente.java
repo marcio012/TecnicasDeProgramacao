@@ -1,4 +1,4 @@
-package Exercicio.data0808;
+package Exercicio.data0808.Entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -6,11 +6,6 @@ import java.util.Scanner;
 
 public class Gerente extends Funcionario {
 	
-	public Gerente(String nome, LocalDate dataAdmisao, BigDecimal salario, BigDecimal bonus) {
-		super(nome, dataAdmisao, salario, bonus);
-		// TODO Auto-generated constructor stub
-	}
-
 	public Gerente() {
 		
 	}
@@ -30,9 +25,7 @@ public class Gerente extends Funcionario {
 	
 	@Override
 	public void getSpliceDataAdmisao() {
-		
 		Scanner c = new Scanner(System.in);
-		
 		System.out.println("");
 		System.out.println("Dia da Admisão: ");
 		int dia = c.nextInt();

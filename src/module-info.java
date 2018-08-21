@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author marciohelenomaiapessoa
- *
- */
-module TecnicasDeProgramacao {
-}
