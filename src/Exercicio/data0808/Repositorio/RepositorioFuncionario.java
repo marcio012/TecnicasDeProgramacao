@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import Exercicio.data0808.Entidades.Funcionario;
 
-public class RepositorioFuncionario implements IRepositoryInterfaceFuncionario {
+public class RepositorioFuncionario implements IRepositorioFuncionario {
 
 	ArrayList<Funcionario> listaDeFuncionarios = new ArrayList<Funcionario>();
 	
@@ -22,8 +22,7 @@ public class RepositorioFuncionario implements IRepositoryInterfaceFuncionario {
 	}
 
 	@Override
-	public String deletarFuncionario(Funcionario funcionario) {
-		
+	public String deletarFuncionario(Funcionario funcionario) {	
 		return "Teste";
 	}
 

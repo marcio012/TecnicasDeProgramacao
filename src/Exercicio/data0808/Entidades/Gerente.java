@@ -2,10 +2,13 @@ package Exercicio.data0808.Entidades;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Scanner;
 
 public class Gerente extends Funcionario {
 	
+	public Gerente(String nome, int ano, int mes, int dia, BigDecimal salario, BigDecimal bonus) {
+		super(nome, ano, mes, dia, salario, bonus);
+	}
+
 	public Gerente() {
 		
 	}
@@ -19,23 +22,10 @@ public class Gerente extends Funcionario {
 	
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
+		return 	"Nome Gerente: " + getNome() + 
+				" Data de Admisão: " + getDataAdmisao() + 
+				" Salário Liquido: R$ " + getSalario() + 
+				" Bonus anual: " + getBonus() + "% " +
+				" Salário Bruto: R$ " + getSalarioBruto();
 	}
-	
-	@Override
-	public void getSpliceDataAdmisao() {
-		Scanner c = new Scanner(System.in);
-		System.out.println("");
-		System.out.println("Dia da Admisão: ");
-		int dia = c.nextInt();
-		System.out.println("Mes da Admisão: ");
-		int mes = c.nextInt();
-		System.out.println("Ano da Admisão: ");
-		int ano = c.nextInt();
-		setDataAdmisao(ano,mes,dia);
-		
-	}
-	
-	
 }

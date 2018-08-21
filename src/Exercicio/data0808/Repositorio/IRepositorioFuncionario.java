@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import Exercicio.data0808.Entidades.Funcionario;
 
-public interface IRepositoryInterfaceFuncionario {
+public interface IRepositorioFuncionario {
 
 	public String salvarFuncionario(Funcionario funcionario);
 	public String deletarFuncionario(Funcionario funcionario);

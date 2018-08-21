@@ -84,20 +84,11 @@ public class Funcionario {
 				" Salário Liquido: R$ " + getSalario() + 
 				" Bonus anual: " + getBonus() + "% " +
 				" Salário Bruto: R$ " + getSalarioBruto();
-				
 	}
 	
 	public void addFuncionario(Funcionario funcionario) {
 		this.funcionarios.add(funcionario);
 	}
 	
-	public void listarFuncionarios() {
-		
-		for(Funcionario funcionario: funcionarios) {
-			System.out.println(funcionario.toString());
-		}
-		
-	}
-	
-	
+
 }

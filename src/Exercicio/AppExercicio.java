@@ -7,6 +7,7 @@ import java.util.Scanner;
 import Exercicio.data0808.Entidades.Funcionario;
 import Exercicio.data0808.Entidades.Gerente;
 import Exercicio.data0808.Repositorio.RepositorioFuncionario;
+import Exercicio.data0808.Repositorio.RepositorioGerente;
 
 public class AppExercicio {
 
@@ -17,7 +18,8 @@ public class AppExercicio {
 		Scanner gsc = new Scanner(System.in);
 		
 		RepositorioFuncionario arrayFunc = new RepositorioFuncionario();
-		Gerente gerente = new Gerente();
+		RepositorioGerente arrayGerente = new RepositorioGerente();
+		
 		
 		int inicio = 0;
 
@@ -62,9 +64,8 @@ public class AppExercicio {
 			case 2:
 //				Gerente
 				
-
 				System.out.println("Nome Gerente: ");
-				gerente.setNome(gsc.nextLine());
+				nome = gsc.nextLine();
 				System.out.println("Data da Admisão? ");
 				System.out.println("Dia: ");
 				dia = gsc.nextInt();
@@ -73,24 +74,29 @@ public class AppExercicio {
 				System.out.println("Ano: ");
 				ano = gsc.nextInt();
 
-				gerente.setDataAdmisao(ano, mes, dia);
+//				gerente.setDataAdmisao(ano, mes, dia);
 
 				System.out.println("Salário Inicial? R$");
-				gerente.setSalario(gsc.nextBigDecimal());
+				salario = gsc.nextBigDecimal();
 
 				System.out.println("Bonus de salário? ");
-				gerente.setBonus(gsc.nextBigDecimal());
-
+				bonus = gsc.nextBigDecimal();
+				
+				Gerente gerente = new Gerente(nome, ano, mes, dia, salario, bonus);
 				gerente.aumentaSalario(gerente.getBonus());
 				System.out.println(gerente.toString());
+				System.out.println(arrayGerente.salvarGerente(gerente));
 
 				break;
-
 				
 			case 3: 
 		
 				System.out.println("Relatorio: ");
-				arrayFunc.imprimirListaFuncionarios();		
+				System.out.println("Lista de Funcionário: ");
+				arrayFunc.imprimirListaFuncionarios();	
+				System.out.println("--------------------------");
+				System.out.println("Lista de Gerentes: ");
+				arrayGerente.imprimirListaGerentes();	
 				break;
 				
 			default:
